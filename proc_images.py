@@ -14,7 +14,7 @@ from scipy.misc import imread,imsave
 
 
 # Please modify to your local caffe directory
-caffe_bin = '/mnt/zfs/projects/ml_flow/v2x/flownet2/build/tools/caffe.bin'
+caffe_bin = '../build/tools/caffe.bin'
 
 gpu_id = 0
 
