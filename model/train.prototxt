@@ -1044,7 +1044,8 @@ layer {
     negative_slope: 0.1
   }
 }
-##### 1_1L #####
+
+##### G1_1 #####
 layer {
   name: "corr_1_1L"
   type: "Correlation"
@@ -1078,7 +1079,7 @@ layer {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_1_1L"
   type: "Convolution"
@@ -1420,7 +1421,6 @@ layer {
   bottom: "incept_1_1L_4b_2"
   top: "concat_1_1L"
 }
-#************************************
 
 
 layer {
@@ -1725,7 +1725,7 @@ layer {
     l2_per_location: true
   }
 }
-##### 2_1L #####
+##### G1_2 #####
 layer {
   name: "flow_2_1L"
   type: "Eltwise"
@@ -1778,7 +1778,7 @@ layer {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_2_1L"
   type: "Convolution"
@@ -2120,7 +2120,6 @@ layer {
   bottom: "incept_2_1L_4b_2"
   top: "concat_2_1L"
 }
-#************************************
 
 
 layer {
@@ -2442,7 +2441,7 @@ layer {
     l2_per_location: true
   }
 }
-##### 3_1L #####
+##### G1_3 #####
 layer {
   name: "flow_3_1L"
   type: "Eltwise"
@@ -2456,14 +2455,14 @@ layer {
 layer {
   name: "warped_3_1L"
   type: "Warp"
-  bottom: "conv1_5_b" ############################################################
-  bottom: "flow_3_1L" #######################################################
+  bottom: "conv1_5_b" 
+  bottom: "flow_3_1L" 
   top: "warped_3_1L"
 }
 layer {
   name: "corr_3_1L"
   type: "Correlation"
-  bottom: "conv0_5_b" ################################################################
+  bottom: "conv0_5_b" 
   bottom: "warped_3_1L"
   top: "corr_3_1L"
   correlation_param {
@@ -2487,14 +2486,14 @@ layer {
   name: "corr_3_1L_concat"
   type: "Concat"
   bottom: "corr_3_1L"
-  bottom: "conv0_5_b" ########################################################
-  bottom: "predict_flow_2_1L" #############################################################
+  bottom: "conv0_5_b" 
+  bottom: "predict_flow_2_1L" 
   top: "corr_3_1L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_3_1L"
   type: "Convolution"
@@ -2836,7 +2835,7 @@ layer {
   bottom: "incept_3_1L_4b_2"
   top: "concat_3_1L"
 }
-#************************************
+
 
 
 layer {
@@ -3134,7 +3133,7 @@ layer {
 layer {
 	name: "predict_flow_3_1L"
 	type: "Eltwise"
-	bottom: "predict_flow_2_1L" ############################################################
+	bottom: "predict_flow_2_1L" 
 	bottom: "predict_res_flow_3_1L"
 	top: "predict_flow_3_1L"
 	eltwise_param { operation: SUM }
@@ -3162,7 +3161,7 @@ layer {
 
 
 
-##### 4_1L #####
+##### G1_4 #####
 layer {
   name: "flow_4_1L"
   type: "Eltwise"
@@ -3176,14 +3175,14 @@ layer {
 layer {
   name: "warped_4_1L"
   type: "Warp"
-  bottom: "conv1_5_b"  ############################################################
-  bottom: "flow_4_1L" ###########################################################
+  bottom: "conv1_5_b"  
+  bottom: "flow_4_1L" 
   top: "warped_4_1L"
 }
 layer {
   name: "corr_4_1L"
   type: "Correlation"
-  bottom: "conv0_5_b"  #########################################################
+  bottom: "conv0_5_b"  
   bottom: "warped_4_1L"
   top: "corr_4_1L"
   correlation_param {
@@ -3207,14 +3206,14 @@ layer {
   name: "corr_4_1L_concat"
   type: "Concat"
   bottom: "corr_4_1L"
-  bottom: "conv0_5_b"  ###########################################################
-  bottom: "predict_flow_3_1L" #######################################################
+  bottom: "conv0_5_b"  
+  bottom: "predict_flow_3_1L" 
   top: "corr_4_1L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_4_1L"
   type: "Convolution"
@@ -3556,7 +3555,7 @@ layer {
   bottom: "incept_4_1L_4b_2"
   top: "concat_4_1L"
 }
-#************************************
+
 
 
 layer {
@@ -3855,7 +3854,7 @@ layer {
 layer {
 	name: "predict_flow_4_1L"
 	type: "Eltwise"
-	bottom: "predict_flow_3_1L" ###########################################################
+	bottom: "predict_flow_3_1L" 
 	bottom: "predict_res_flow_4_1L"
 	top: "predict_flow_4_1L"
 	eltwise_param { operation: SUM }
@@ -3881,7 +3880,7 @@ layer {
   }
 }
 
-##### 5_1L #####
+##### G1_5 #####
 layer {
   name: "flow_5_1L"
   type: "Eltwise"
@@ -3895,14 +3894,14 @@ layer {
 layer {
   name: "warped_5_1L"
   type: "Warp"
-  bottom: "conv1_5_b"  ############################################################
-  bottom: "flow_5_1L" ###########################################################
+  bottom: "conv1_5_b"  
+  bottom: "flow_5_1L" 
   top: "warped_5_1L"
 }
 layer {
   name: "corr_5_1L"
   type: "Correlation"
-  bottom: "conv0_5_b"  #########################################################
+  bottom: "conv0_5_b"
   bottom: "warped_5_1L"
   top: "corr_5_1L"
   correlation_param {
@@ -3926,14 +3925,14 @@ layer {
   name: "corr_5_1L_concat"
   type: "Concat"
   bottom: "corr_5_1L"
-  bottom: "conv0_5_b"  ###########################################################
-  bottom: "predict_flow_4_1L" #######################################################
+  bottom: "conv0_5_b"  
+  bottom: "predict_flow_4_1L" 
   top: "corr_5_1L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_5_1L"
   type: "Convolution"
@@ -4275,7 +4274,7 @@ layer {
   bottom: "incept_5_1L_4b_2"
   top: "concat_5_1L"
 }
-#************************************
+
 
 
 layer {
@@ -4575,7 +4574,7 @@ layer {
 layer {
 	name: "predict_flow_5_1L"
 	type: "Eltwise"
-	bottom: "predict_flow_4_1L" ###########################################################
+	bottom: "predict_flow_4_1L" 
 	bottom: "predict_res_flow_5_1L"
 	top: "predict_flow_5_1L"
 	eltwise_param { operation: SUM }
@@ -4620,7 +4619,7 @@ layer {
   }
 }
 
-##### 1_2L #####
+##### G2_1 #####
 layer {
   name: "flow_1_2L"
   type: "Eltwise"
@@ -4634,14 +4633,14 @@ layer {
 layer {
   name: "warped_1_2L"
   type: "Warp"
-  bottom: "conv1_4_b"  ############################################################
-  bottom: "flow_1_2L" ###########################################################
+  bottom: "conv1_4_b"
+  bottom: "flow_1_2L" 
   top: "warped_1_2L"
 }
 layer {
   name: "corr_1_2L"
   type: "Correlation"
-  bottom: "conv0_4_b"  #########################################################
+  bottom: "conv0_4_b"  
   bottom: "warped_1_2L"
   top: "corr_1_2L"
   correlation_param {
@@ -4665,14 +4664,14 @@ layer {
   name: "corr_1_2L_concat"
   type: "Concat"
   bottom: "corr_1_2L"
-  bottom: "conv0_4_b"  ###########################################################
-  bottom: "scaled_flow_1Lto2L" #######################################################
+  bottom: "conv0_4_b" 
+  bottom: "scaled_flow_1Lto2L" 
   top: "corr_1_2L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_1_2L"
   type: "Convolution"
@@ -5014,7 +5013,7 @@ layer {
   bottom: "incept_1_2L_4b_2"
   top: "concat_1_2L"
 }
-#************************************
+
 
 
 layer {
@@ -5303,7 +5302,7 @@ layer {
 layer {
 	name: "predict_flow_1_2L"
 	type: "Eltwise"
-	bottom: "scaled_flow_1Lto2L" ###########################################################
+	bottom: "scaled_flow_1Lto2L" 
 	bottom: "predict_res_flow_1_2L"
 	top: "predict_flow_1_2L"
 	eltwise_param { operation: SUM }
@@ -5323,14 +5322,14 @@ layer {
   bottom: "predict_flow_1_2L"
   bottom: "scaled_flow_gt_1_2L"
   top: "loss_1_2L"
-  loss_weight: 0.08 #########################################################
+  loss_weight: 0.08 
   l1_loss_param {
     l2_per_location: true
   }
 } 
 
 
-##### 2_2L #####
+##### G2_2 #####
 layer {
   name: "flow_2_2L"
   type: "Eltwise"
@@ -5344,14 +5343,14 @@ layer {
 layer {
   name: "warped_2_2L"
   type: "Warp"
-  bottom: "conv1_4_b"  ############################################################
-  bottom: "flow_2_2L"  ###########################################################
+  bottom: "conv1_4_b"  
+  bottom: "flow_2_2L"  
   top: "warped_2_2L"
 }
 layer {
   name: "corr_2_2L"
   type: "Correlation"
-  bottom: "conv0_4_b"  #########################################################
+  bottom: "conv0_4_b"  
   bottom: "warped_2_2L"
   top: "corr_2_2L"
   correlation_param {
@@ -5375,14 +5374,14 @@ layer {
   name: "corr_2_2L_concat"
   type: "Concat"
   bottom: "corr_2_2L"
-  bottom: "conv0_4_b"  ###########################################################
-  bottom: "predict_flow_1_2L" #######################################################
+  bottom: "conv0_4_b"  
+  bottom: "predict_flow_1_2L" 
   top: "corr_2_2L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_2_2L"
   type: "Convolution"
@@ -5724,7 +5723,7 @@ layer {
   bottom: "incept_2_2L_4b_2"
   top: "concat_2_2L"
 }
-#************************************
+
 
 
 layer {
@@ -6021,7 +6020,7 @@ layer {
 layer {
 	name: "predict_flow_2_2L"
 	type: "Eltwise"
-	bottom: "predict_flow_1_2L" ###########################################################
+	bottom: "predict_flow_1_2L" 
 	bottom: "predict_res_flow_2_2L"
 	top: "predict_flow_2_2L"
 	eltwise_param { operation: SUM }
@@ -6041,13 +6040,13 @@ layer {
   bottom: "predict_flow_2_2L"
   bottom: "scaled_flow_gt_2_2L"
   top: "loss_2_2L"
-  loss_weight: 0.08 #########################################################
+  loss_weight: 0.08 
   l1_loss_param {
     l2_per_location: true
   }
 } 
 
-##### 3_2L #####
+##### G2_3 #####
 layer {
   name: "flow_3_2L"
   type: "Eltwise"
@@ -6061,14 +6060,14 @@ layer {
 layer {
   name: "warped_3_2L"
   type: "Warp"
-  bottom: "conv1_4_b"  ############################################################
-  bottom: "flow_3_2L"  ###########################################################
+  bottom: "conv1_4_b"  
+  bottom: "flow_3_2L"  
   top: "warped_3_2L"
 }
 layer {
   name: "corr_3_2L"
   type: "Correlation"
-  bottom: "conv0_4_b"  #########################################################
+  bottom: "conv0_4_b" 
   bottom: "warped_3_2L"
   top: "corr_3_2L"
   correlation_param {
@@ -6092,14 +6091,14 @@ layer {
   name: "corr_3_2L_concat"
   type: "Concat"
   bottom: "corr_3_2L"
-  bottom: "conv0_4_b"  ###########################################################
-  bottom: "predict_flow_2_2L" #######################################################
+  bottom: "conv0_4_b" 
+  bottom: "predict_flow_2_2L" 
   top: "corr_3_2L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_3_2L"
   type: "Convolution"
@@ -6441,7 +6440,7 @@ layer {
   bottom: "incept_3_2L_4b_2"
   top: "concat_3_2L"
 }
-#************************************
+
 
 
 layer {
@@ -6739,7 +6738,7 @@ layer {
 layer {
 	name: "predict_flow_3_2L"
 	type: "Eltwise"
-	bottom: "predict_flow_2_2L" ###########################################################
+	bottom: "predict_flow_2_2L" 
 	bottom: "predict_res_flow_3_2L"
 	top: "predict_flow_3_2L"
 	eltwise_param { operation: SUM }
@@ -6759,13 +6758,13 @@ layer {
   bottom: "predict_flow_3_2L"
   bottom: "scaled_flow_gt_3_2L"
   top: "loss_3_2L"
-  loss_weight: 0.08 #########################################################
+  loss_weight: 0.08 
   l1_loss_param {
     l2_per_location: true
   }
 } 
 
-##### 4_2L #####
+##### G2_4 #####
 layer {
   name: "flow_4_2L"
   type: "Eltwise"
@@ -6779,14 +6778,14 @@ layer {
 layer {
   name: "warped_4_2L"
   type: "Warp"
-  bottom: "conv1_4_b"  ############################################################
-  bottom: "flow_4_2L"  ###########################################################
+  bottom: "conv1_4_b"  
+  bottom: "flow_4_2L"  
   top: "warped_4_2L"
 }
 layer {
   name: "corr_4_2L"
   type: "Correlation"
-  bottom: "conv0_4_b"  #########################################################
+  bottom: "conv0_4_b"  
   bottom: "warped_4_2L"
   top: "corr_4_2L"
   correlation_param {
@@ -6810,14 +6809,14 @@ layer {
   name: "corr_4_2L_concat"
   type: "Concat"
   bottom: "corr_4_2L"
-  bottom: "conv0_4_b"  ###########################################################
-  bottom: "predict_flow_3_2L" #######################################################
+  bottom: "conv0_4_b"  
+  bottom: "predict_flow_3_2L" 
   top: "corr_4_2L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_4_2L"
   type: "Convolution"
@@ -7159,7 +7158,7 @@ layer {
   bottom: "incept_4_2L_4b_2"
   top: "concat_4_2L"
 }
-#************************************
+
 
 
 layer {
@@ -7458,7 +7457,7 @@ layer {
 layer {
 	name: "predict_flow_4_2L"
 	type: "Eltwise"
-	bottom: "predict_flow_3_2L" ###########################################################
+	bottom: "predict_flow_3_2L" 
 	bottom: "predict_res_flow_4_2L"
 	top: "predict_flow_4_2L"
 	eltwise_param { operation: SUM }
@@ -7478,7 +7477,7 @@ layer {
   bottom: "predict_flow_4_2L"
   bottom: "scaled_flow_gt_4_2L"
   top: "loss_4_2L"
-  loss_weight: 0.08 #########################################################
+  loss_weight: 0.08 
   l1_loss_param {
     l2_per_location: true
   }
@@ -7503,7 +7502,7 @@ layer {
 }
 
 
-##### 1_3L #####
+##### G3_1 #####
 layer {
   name: "flow_1_3L"
   type: "Eltwise"
@@ -7517,14 +7516,14 @@ layer {
 layer {
   name: "warped_1_3L"
   type: "Warp"
-  bottom: "conv1_3_b"  ############################################################
-  bottom: "flow_1_3L"  ###########################################################
+  bottom: "conv1_3_b"  
+  bottom: "flow_1_3L"  
   top: "warped_1_3L"
 }
 layer {
   name: "corr_1_3L"
   type: "Correlation"
-  bottom: "conv0_3_b"  #########################################################
+  bottom: "conv0_3_b" 
   bottom: "warped_1_3L"
   top: "corr_1_3L"
   correlation_param {
@@ -7548,14 +7547,14 @@ layer {
   name: "corr_1_3L_concat"
   type: "Concat"
   bottom: "corr_1_3L"
-  bottom: "conv0_3_b"  ###########################################################
-  bottom: "scaled_flow_2Lto3L" #######################################################
+  bottom: "conv0_3_b"  
+  bottom: "scaled_flow_2Lto3L" 
   top: "corr_1_3L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_1_3L"
   type: "Convolution"
@@ -7897,7 +7896,7 @@ layer {
   bottom: "incept_1_3L_4b_2"
   top: "concat_1_3L"
 }
-#************************************
+
 
 
 layer {
@@ -8185,7 +8184,7 @@ layer {
 layer {
 	name: "predict_flow_1_3L"
 	type: "Eltwise"
-	bottom: "scaled_flow_2Lto3L" ###########################################################
+	bottom: "scaled_flow_2Lto3L" 
 	bottom: "predict_res_flow_1_3L"
 	top: "predict_flow_1_3L"
 	eltwise_param { operation: SUM }
@@ -8205,14 +8204,14 @@ layer {
   bottom: "predict_flow_1_3L"
   bottom: "scaled_flow_gt_1_3L"
   top: "loss_1_3L"
-  loss_weight: 0.02 #########################################################
+  loss_weight: 0.02 
   l1_loss_param {
     l2_per_location: true
   }
 } 
 
 
-##### 2_3L #####
+##### G3_2 #####
 layer {
   name: "flow_2_3L"
   type: "Eltwise"
@@ -8226,14 +8225,14 @@ layer {
 layer {
   name: "warped_2_3L"
   type: "Warp"
-  bottom: "conv1_3_b"  ############################################################
-  bottom: "flow_2_3L"  ###########################################################
+  bottom: "conv1_3_b"  
+  bottom: "flow_2_3L" 
   top: "warped_2_3L"
 }
 layer {
   name: "corr_2_3L"
   type: "Correlation"
-  bottom: "conv0_3_b"  #########################################################
+  bottom: "conv0_3_b"  
   bottom: "warped_2_3L"
   top: "corr_2_3L"
   correlation_param {
@@ -8257,14 +8256,14 @@ layer {
   name: "corr_2_3L_concat"
   type: "Concat"
   bottom: "corr_2_3L"
-  bottom: "conv0_3_b"  ###########################################################
-  bottom: "predict_flow_1_3L" #######################################################
+  bottom: "conv0_3_b" 
+  bottom: "predict_flow_1_3L" 
   top: "corr_2_3L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_2_3L"
   type: "Convolution"
@@ -8606,7 +8605,7 @@ layer {
   bottom: "incept_2_3L_4b_2"
   top: "concat_2_3L"
 }
-#************************************
+
 
 
 layer {
@@ -8903,7 +8902,7 @@ layer {
 layer {
 	name: "predict_flow_2_3L"
 	type: "Eltwise"
-	bottom: "predict_flow_1_3L" ###########################################################
+	bottom: "predict_flow_1_3L" 
 	bottom: "predict_res_flow_2_3L"
 	top: "predict_flow_2_3L"
 	eltwise_param { operation: SUM }
@@ -8923,13 +8922,13 @@ layer {
   bottom: "predict_flow_2_3L"
   bottom: "scaled_flow_gt_2_3L"
   top: "loss_2_3L"
-  loss_weight: 0.02 #########################################################
+  loss_weight: 0.02 
   l1_loss_param {
     l2_per_location: true
   }
 } 
 
-##### 3_3L #####
+##### G3_3 #####
 layer {
   name: "flow_3_3L"
   type: "Eltwise"
@@ -8943,14 +8942,14 @@ layer {
 layer {
   name: "warped_3_3L"
   type: "Warp"
-  bottom: "conv1_3_b"  ############################################################
-  bottom: "flow_3_3L"  ###########################################################
+  bottom: "conv1_3_b"  
+  bottom: "flow_3_3L"  
   top: "warped_3_3L"
 }
 layer {
   name: "corr_3_3L"
   type: "Correlation"
-  bottom: "conv0_3_b"  #########################################################
+  bottom: "conv0_3_b" 
   bottom: "warped_3_3L"
   top: "corr_3_3L"
   correlation_param {
@@ -8974,14 +8973,14 @@ layer {
   name: "corr_3_3L_concat"
   type: "Concat"
   bottom: "corr_3_3L"
-  bottom: "conv0_3_b"  ###########################################################
-  bottom: "predict_flow_2_3L" #######################################################
+  bottom: "conv0_3_b"  
+  bottom: "predict_flow_2_3L" 
   top: "corr_3_3L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_3_3L"
   type: "Convolution"
@@ -9323,7 +9322,7 @@ layer {
   bottom: "incept_3_3L_4b_2"
   top: "concat_3_3L"
 }
-#************************************
+
 
 
 layer {
@@ -9621,7 +9620,7 @@ layer {
 layer {
 	name: "predict_flow_3_3L"
 	type: "Eltwise"
-	bottom: "predict_flow_2_3L" ###########################################################
+	bottom: "predict_flow_2_3L" 
 	bottom: "predict_res_flow_3_3L"
 	top: "predict_flow_3_3L"
 	eltwise_param { operation: SUM }
@@ -9641,7 +9640,7 @@ layer {
   bottom: "predict_flow_3_3L"
   bottom: "scaled_flow_gt_3_3L"
   top: "loss_3_3L"
-  loss_weight: 0.02 #########################################################
+  loss_weight: 0.02 
   l1_loss_param {
     l2_per_location: true
   }
@@ -9666,7 +9665,7 @@ layer {
 }
 
 
-##### 1_4L #####
+##### G4_1 #####
 layer {
   name: "flow_1_4L"
   type: "Eltwise"
@@ -9680,14 +9679,14 @@ layer {
 layer {
   name: "warped_1_4L"
   type: "Warp"
-  bottom: "conv1_2_b"  ############################################################
-  bottom: "flow_1_4L"  ###########################################################
+  bottom: "conv1_2_b" 
+  bottom: "flow_1_4L"  
   top: "warped_1_4L"
 }
 layer {
   name: "corr_1_4L"
   type: "Correlation"
-  bottom: "conv0_2_b"  #########################################################
+  bottom: "conv0_2_b"  
   bottom: "warped_1_4L"
   top: "corr_1_4L"
   correlation_param {
@@ -9711,14 +9710,14 @@ layer {
   name: "corr_1_4L_concat"
   type: "Concat"
   bottom: "corr_1_4L"
-  bottom: "conv0_2_b"  ###########################################################
-  bottom: "scaled_flow_3Lto4L" #######################################################
+  bottom: "conv0_2_b"  
+  bottom: "scaled_flow_3Lto4L" 
   top: "corr_1_4L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_1_4L"
   type: "Convolution"
@@ -10060,7 +10059,7 @@ layer {
   bottom: "incept_1_4L_4b_2"
   top: "concat_1_4L"
 }
-#************************************
+
 
 
 layer {
@@ -10348,7 +10347,7 @@ layer {
 layer {
 	name: "predict_flow_1_4L"
 	type: "Eltwise"
-	bottom: "scaled_flow_3Lto4L" ###########################################################
+	bottom: "scaled_flow_3Lto4L"
 	bottom: "predict_res_flow_1_4L"
 	top: "predict_flow_1_4L"
 	eltwise_param { operation: SUM }
@@ -10368,13 +10367,13 @@ layer {
   bottom: "predict_flow_1_4L"
   bottom: "scaled_flow_gt_1_4L"
   top: "loss_1_4L"
-  loss_weight: 0.01 #########################################################
+  loss_weight: 0.01 
   l1_loss_param {
     l2_per_location: true
   }
 } 
 
-##### 2_4L #####
+##### G4_2 #####
 layer {
   name: "flow_2_4L"
   type: "Eltwise"
@@ -10388,14 +10387,14 @@ layer {
 layer {
   name: "warped_2_4L"
   type: "Warp"
-  bottom: "conv1_2_b"  ############################################################
-  bottom: "flow_2_4L"  ###########################################################
+  bottom: "conv1_2_b"  
+  bottom: "flow_2_4L"  
   top: "warped_2_4L"
 }
 layer {
   name: "corr_2_4L"
   type: "Correlation"
-  bottom: "conv0_2_b"  #########################################################
+  bottom: "conv0_2_b"  
   bottom: "warped_2_4L"
   top: "corr_2_4L"
   correlation_param {
@@ -10419,14 +10418,14 @@ layer {
   name: "corr_2_4L_concat"
   type: "Concat"
   bottom: "corr_2_4L"
-  bottom: "conv0_2_b"  ###########################################################
-  bottom: "predict_flow_1_4L" #######################################################
+  bottom: "conv0_2_b"  
+  bottom: "predict_flow_1_4L" 
   top: "corr_2_4L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_2_4L"
   type: "Convolution"
@@ -10768,7 +10767,7 @@ layer {
   bottom: "incept_2_4L_4b_2"
   top: "concat_2_4L"
 }
-#************************************
+
 
 
 layer {
@@ -11065,7 +11064,7 @@ layer {
 layer {
 	name: "predict_flow_2_4L"
 	type: "Eltwise"
-	bottom: "predict_flow_1_4L" ###########################################################
+	bottom: "predict_flow_1_4L" 
 	bottom: "predict_res_flow_2_4L"
 	top: "predict_flow_2_4L"
 	eltwise_param { operation: SUM }
@@ -11085,7 +11084,7 @@ layer {
   bottom: "predict_flow_2_4L"
   bottom: "scaled_flow_gt_2_4L"
   top: "loss_2_4L"
-  loss_weight: 0.01 #########################################################
+  loss_weight: 0.01 
   l1_loss_param {
     l2_per_location: true
   }
@@ -11111,7 +11110,7 @@ layer {
 }
 
 
-##### 1_5L #####
+##### G5_1 #####
 layer {
   name: "flow_1_5L"
   type: "Eltwise"
@@ -11125,14 +11124,14 @@ layer {
 layer {
   name: "warped_1_5L"
   type: "Warp"
-  bottom: "conv1_1_b"  ############################################################
-  bottom: "flow_1_5L"  ###########################################################
+  bottom: "conv1_1_b"  
+  bottom: "flow_1_5L"  
   top: "warped_1_5L"
 }
 layer {
   name: "corr_1_5L"
   type: "Correlation"
-  bottom: "conv0_1_b"  #########################################################
+  bottom: "conv0_1_b"  
   bottom: "warped_1_5L"
   top: "corr_1_5L"
   correlation_param {
@@ -11156,14 +11155,14 @@ layer {
   name: "corr_1_5L_concat"
   type: "Concat"
   bottom: "corr_1_5L"
-  bottom: "conv0_1_b"  ###########################################################
-  bottom: "scaled_flow_4Lto5L" #######################################################
+  bottom: "conv0_1_b"  
+  bottom: "scaled_flow_4Lto5L" 
   top: "corr_1_5L_concat"
   concat_param {
     axis: 1
   }
 }
-#*********************************************
+
 layer {
   name: "conv1_1_5L"
   type: "Convolution"
@@ -11505,7 +11504,7 @@ layer {
   bottom: "incept_1_5L_4b_2"
   top: "concat_1_5L"
 }
-#************************************
+
 
 
 layer {
@@ -11793,7 +11792,7 @@ layer {
 layer {
 	name: "predict_flow_1_5L"
 	type: "Eltwise"
-	bottom: "scaled_flow_4Lto5L" ###########################################################
+	bottom: "scaled_flow_4Lto5L" 
 	bottom: "predict_res_flow_1_5L"
 	top: "predict_flow_1_5L"
 	eltwise_param { operation: SUM }
@@ -11813,7 +11812,7 @@ layer {
   bottom: "predict_flow_1_5L"
   bottom: "scaled_flow_gt_1_5L"
   top: "loss_1_5L"
-  loss_weight: 0.005 #########################################################
+  loss_weight: 0.005 
   l1_loss_param {
     l2_per_location: true
   }
