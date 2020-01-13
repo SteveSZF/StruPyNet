@@ -21,31 +21,7 @@ YOUR_DIRECTORY/flownet2/build/tools/caffe.bin time -model ./benchmark_time/time_
 1.Please download the FlyingChairs dataset from https://lmb.informatik.uni-freiburg.de/resources/datasets, make the LMDB file, modify the local directory in ./model/train.prototxt. 
 2.Modify the local directory in  ./train.py and Run ./train.py
 
-### Method description
-The model here is PWC-Net with a larger feature pyramid extractor (PWC-Net-feature-uparrow, second row in Table5(a) of Our CVPR 2018 paper below).
 
 #### Paper & Citation
-Deqing Sun, Xiaodong Yang, Ming-Yu Liu, and Jan Kautz. "PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume." CVPR 2018. 
-Deqing Sun, Xiaodong Yang, Ming-Yu Liu, and Jan Kautz. "PWC-Net: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume." arXiv preprint arXiv:1709.02371(https://arxiv.org/abs/1709.02371), 2017.
-Project webpage: http://research.nvidia.com/publication/2018-02_PWC-Net:-CNNs-for
-https://github.com/NVlabs/PWC-Net
- 
-
-If you use PWC-Net, please cite the following paper: 
-```
-@InProceedings{Sun2018PWC-Net,
-  author    = {Deqing Sun and Xiaodong Yang and Ming-Yu Liu and Jan Kautz},
-  title     = {{PWC-Net}: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume},
-  booktitle = CVPR,
-  year      = {2018},
-}
-```
-or the arXiv paper
-```
-@article{sun2017pwc,
-  author={Sun, Deqing and Yang, Xiaodong and Liu, Ming-Yu and Kautz, Jan},
-  title={{PWC-Net}: CNNs for Optical Flow Using Pyramid, Warping, and Cost Volume},
-  journal={arXiv preprint arXiv:1709.02371},
-  year={2017}
-}
-```
+Zefeng Sun, Hanli Wang, Yun Yi, and Qinyu Li, Structural Pyramid Network for Cascaded Optical Flow Estimation, The 26th International Conference on Multimedia Modeling (MMM’20) , Daejeon, Korea, Jan. 5-8, 2020. 
+https://github.com/SteveSZF/StruPyNet
